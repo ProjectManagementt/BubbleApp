@@ -40,7 +40,7 @@ Open the app with the following **supported browsers** and many more.
 -   Chat with Emoji Picker & Private messages & Save the conversations
 -   Speech recognition to send the speeches
 -   Advance collaborative whiteboard for the teachers
--   Share any YouTube video in real-time
+-   Share any YT Embed video in real-time
 -   Full-Screen Mode on mouse click on the Video element
 -   Possibility to Change UI Themes
 -   Right-click on the Video elements for more options
@@ -71,6 +71,18 @@ https://www.canva.com/design/DAE693uLOIU/view
     | audio  | boolean | enable / disable |
     | video  | boolean | enable / disable |
     | notify | boolean | enable / disable |
+
+## Embed a meeting
+
+Embedding a meeting into a service or app using an iframe.
+
+```html
+<iframe
+    allow="camera; microphone; fullscreen; display-capture; autoplay"
+    src="https://mirotalk.up.railway.app/newcall"
+    style="height: 100%; width: 100%; border: 0px;"
+></iframe>
+```
 
 ## Quick start
 
