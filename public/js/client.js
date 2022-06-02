@@ -677,7 +677,7 @@ function whoAreYou() {
     Swal.fire({
         allowOutsideClick: false,
         allowEscapeKey: false,
-        background: swalBackground,
+        background: 'linear-gradient(100deg, #8106a3 0, #ff5fc4 75%, #7f757d 100%)',
         position: 'center',
         imageAlt: 'mirotalk-name',
         imageUrl: welcomeImg,
@@ -685,10 +685,11 @@ function whoAreYou() {
         input: 'text',
         html: `<br>
         <div style="overflow: hidden;">
-            <button id="initAudioBtn" class="fas fa-microphone" onclick="handleAudio(event, true)"></button>
-            <button id="initVideoBtn" class="fas fa-video" onclick="handleVideo(event, true)"></button>
+            <button style = "background-color : #8106a3 ; color : #fca9de" id="initAudioBtn" class="fas fa-microphone" onclick="handleAudio(event, true)"></button>
+            <button style = "background-color : #8106a3 ; color : #fca9de" id="initVideoBtn" class="fas fa-video" onclick="handleVideo(event, true)"></button>
         </div>`,
-        confirmButtonText: `Join meeting`,
+        confirmButtonColor : '#8106a3',
+        confirmButtonText: `Enter the meeting using your name`,
         showClass: {
             popup: 'animate__animated animate__fadeInDown',
         },
@@ -766,22 +767,20 @@ function welcomeUser() {
     const myRoomUrl = window.location.href;
     playSound('newMessage');
     Swal.fire({
-        background: swalBackground,
+        background: 'linear-gradient(100deg, #8106a3 0, #ff5fc4 75%, #7f757d 100%)',
         position: 'center',
-        title: '<strong>Welcome ' + myPeerName + '</strong>',
+        title: '<strong>Hello ' + myPeerName + ' you have successfully entered the room</strong>',
         imageAlt: 'mirotalk-welcome',
         imageUrl: welcomeImg,
         html:
             `
         <br/> 
-        <p style="color:white;">Invite others to join. Share this meeting link.</p>
-        <p style="color:rgb(8, 189, 89);">` +
-            myRoomUrl +
+        <p style="color:white;">Copy URL to let others join.</p>
+        <p style="color:white;">` +
             `</p>`,
-        showDenyButton: true,
         showCancelButton: true,
+        confirmButtonColor : '#8106a3',
         confirmButtonText: `Copy URL`,
-        denyButtonText: `Email invite`,
         cancelButtonText: `Close`,
         showClass: {
             popup: 'animate__animated animate__fadeInDown',
@@ -2716,8 +2715,8 @@ async function shareRoomUrl() {
             background: swalBackground,
             position: 'center',
             title: 'Share Room',
-            // imageAlt: 'mirotalk-share',
-            // imageUrl: shareUrlImg,
+            //imageAlt: 'mirotalk-share',
+            //imageUrl: shareUrlImg,
             html:
                 `
             <br/>
@@ -5309,13 +5308,16 @@ function leaveRoom() {
     playSound('newMessage');
 
     Swal.fire({
-        background: swalBackground,
+        background: 'linear-gradient(100deg, #8106a3 0, #ff5fc4 75%, #7f757d 100%)',
         position: 'center',
         imageAlt: 'mirotalk-leave',
         imageUrl: leaveRoomImg,
-        title: 'Leave this room?',
+        title: 'Are you sure you want to leave this room?',
         showDenyButton: true,
+        confirmButtonColor: '#ff5fc4',
+        denyButtonColor : '#8106a3',
         confirmButtonText: `Yes`,
+        
         denyButtonText: `No`,
         showClass: {
             popup: 'animate__animated animate__fadeInDown',
@@ -5326,7 +5328,7 @@ function leaveRoom() {
     }).then((result) => {
         if (result.isConfirmed) {
             if (surveyActive) {
-                openURL(surveyURL);
+                openURL('https://bubbleherokuapp.herokuapp.com');
             } else {
                 openURL('/newcall');
             }
