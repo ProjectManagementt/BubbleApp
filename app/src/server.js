@@ -105,10 +105,22 @@ const view = {
     about: path.join(__dirname, '../../', 'public/view/about.html'),
     client: path.join(__dirname, '../../', 'public/view/client.html'),
     landing: path.join(__dirname, '../../', 'public/view/landing.html'),
+    landingLogged: path.join(__dirname, '../../', 'public/view/landingLogged.html'),
     newCall: path.join(__dirname, '../../', 'public/view/newcall.html'),
     notFound: path.join(__dirname, '../../', 'public/view/404.html'),
     permission: path.join(__dirname, '../../', 'public/view/permission.html'),
     privacy: path.join(__dirname, '../../', 'public/view/privacy.html'),
+    RegisterAndLogin: path.join(__dirname, '../../', 'public/view/RegisterAndLogin.html'),
+    Login: path.join(__dirname, '../../', 'public/view/Login.html'),
+    Profile: path.join(__dirname, '../../', 'public/view/Profile.html'),
+    Google: path.join(__dirname, '../../', 'public/view/Google.html'),
+    LoginGoogle: path.join(__dirname, '../../', 'public/view/LoginGoogle.html'),
+    EditProfile: path.join(__dirname, '../../', 'public/view/EditProfile.html'),
+    Success: path.join(__dirname, '../../', 'public/view/Success.html'),
+    termsandconditions: path.join(__dirname, '../../', 'public/view/termsandconditions.html'),
+
+
+
 };
 
 let channels = {}; // collect channels
@@ -163,6 +175,48 @@ app.get(['/privacy'], (req, res) => {
     res.sendFile(view.privacy);
 });
 
+app.get(['/termsandconditions'], (req, res) => {
+    res.sendFile(view.termsandconditions);
+});
+
+// Register & Login
+app.get(['/RegisterAndLogin'], (req, res) => {
+    res.sendFile(view.RegisterAndLogin);
+});
+
+//  Login
+app.get(['/Login'], (req, res) => {
+    res.sendFile(view.Login);
+});
+
+app.get(['/Landing'], (req, res) => {
+    res.sendFile(view.landing);
+});
+
+app.get(['/landingLogged'], (req, res) => {
+    res.sendFile(view.landingLogged);
+});
+
+// Profile
+app.get(['/Profile'], (req, res) => {
+    res.sendFile(view.Profile);
+});
+
+// Sign in with google
+app.get(['/Google'], (req, res) => {
+    res.sendFile(view.Google);
+});
+// login with google
+app.get(['/LoginGoogle'], (req, res) => {
+    res.sendFile(view.LoginGoogle);
+});
+//edit profile
+app.get(['/EditProfile'], (req, res) => {
+    res.sendFile(view.EditProfile);
+});
+app.get(['/Success'], (req, res) => {
+    res.sendFile(view.Success);
+});
 // no room name specified to join
 app.get('/join/', (req, res) => {
     if (Object.keys(req.query).length > 0) {
