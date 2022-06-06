@@ -117,7 +117,8 @@ dependencies: {
      LoginGoogle: path.join(__dirname, '../../', 'public/view/LoginGoogle.html'),
      EditProfile: path.join(__dirname, '../../', 'public/view/EditProfile.html'),
      Success: path.join(__dirname, '../../', 'public/view/Success.html'),
- 
+     termsAndconditions: path.join(__dirname, '../../', 'public/view/termsandconditions.html'),
+
  
  
  };
@@ -211,9 +212,14 @@ dependencies: {
  app.get(['/EditProfile'], (req, res) => {
      res.sendFile(view.EditProfile);
  });
+ //succes
  app.get(['/Success'], (req, res) => {
      res.sendFile(view.Success);
  });
+ //terms and conditions
+ app.get(['/termsandconditions'], (req, res) => {
+    res.sendFile(view.termsAndconditions);
+});
  // no room name specified to join
  app.get('/join/', (req, res) => {
      if (Object.keys(req.query).length > 0) {
